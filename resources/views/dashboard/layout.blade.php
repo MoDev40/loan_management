@@ -56,11 +56,11 @@
          <li> 
             <div class="flex items-center gap-4">
                <div class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
-                  <span class="font-medium text-gray-600 dark:text-gray-300">JL</span>
+                  <span class="font-medium text-gray-600 dark:text-gray-300">{{$user->name[0]}}</span>
                </div>
                <div class="font-medium dark:text-white">
-                  <div>Jese Leos</div>
-                  <div class="text-sm text-gray-500 dark:text-gray-400">Joined in August 2014</div>
+                  <div>{{$user->name}}</div>
+                  <div class="text-sm text-gray-500 dark:text-gray-400">Joined in {{$user->created_at}}</div>
                </div>
             </div>
          </li>

@@ -19,13 +19,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UserController::class, 'login'])->name('auth.index');
-Route::post('/auth', [UserController::class, 'authenticate'])->name('auth.authenticate');
+Route::middleware('guest')->group(
+    function () {
+        Route::get('/', [UserController::class, 'login'])->name('auth.index');
+        Route::post('/auth', [UserController::class, 'authenticate'])->name('auth.authenticate');
+    }
+);
 
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-Route::get('/dashboard/overdue', [DashboardController::class, 'overDue'])->name('dashboard.overdue');
+Route::middleware('auth')->group(
+    function () {
+        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+        Route::get('/dashboard/overdue', [DashboardController::class, 'overDue'])->name('dashboard.overdue');
 
-Route::resource('/dashboard/customers', CustomerController::class);
+        Route::resource('/dashboard/customers', CustomerController::class);
 
-Route::resource('/dashboard/loan/receivable', AccountsReceivableController::class);
-Route::resource('/dashboard/payment/accounts_receive', AccountsReceivablePaymentController::class);
+        Route::resource('/dashboard/loan/receivable', AccountsReceivableController::class);
+        Route::resource('/dashboard/payment/accounts_receive', AccountsReceivablePaymentController::class);
+    }
+);
