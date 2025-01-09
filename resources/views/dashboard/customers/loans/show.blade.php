@@ -62,15 +62,16 @@
         </div>
     </div>
 </div>
-
 <button 
-    type="button" 
+    type="button"
+    {{$data->status == 'paid'  ? "disabled" : "hidden" }}
     data-modal-target="default-modal" 
     data-modal-toggle="default-modal" 
     class="text-white mt-10 w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
 >
 Pay
 </button>
+
 <!-- Main modal -->
 <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-2xl max-h-full p-4">

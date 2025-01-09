@@ -46,7 +46,7 @@
                     {{$loan->status}}
                 </td>
                 <td class="flex flex-col items-start px-6 py-5 text-start">
-                    <a href="{{route('receivable.show',$loan->id)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Pay</a>
+                    <a href="{{$loan->status == 'paid' ? "" : route('receivable.show',$loan->id)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Pay</a>
                     <a href="{{route('receivable.edit',$loan->id)}}" class="font-medium text-yellow-500 hover:underline">Edit</a>
                     <form action="{{route('receivable.destroy',$loan)}}" method="post">
                         @csrf
