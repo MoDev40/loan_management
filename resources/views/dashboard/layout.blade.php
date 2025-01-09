@@ -47,7 +47,7 @@
                      <a href="{{route('receivable.index')}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Loans</a>
                   </li>
                   <li>
-                     <a href="" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Over Due</a>
+                     <a href="{{route('dashboard.overdue')}}" class="flex items-center w-full p-2 text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700">Over Due</a>
                   </li>
             </ul>
          </li>
