@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\AccountsReceivable;
 use App\Models\AccountsReceivablePayment;
 use Illuminate\Http\Request;
 
@@ -37,15 +36,7 @@ class AccountsReceivablePaymentController extends Controller
             'accounts_receivable_id' => 'required|exists:accounts_receivable,id',
         ]);
 
-        $instance = AccountsReceivablePayment::with('accountsReceivable')->where('accounts_receivable_id', $request->accounts_receivable_id);
-        $loan = $instance->get()[0]->accountsReceivable->amount;
-        $totalPayed = $instance->sum('amount') + $request->amount;
-
         AccountsReceivablePayment::create($request->all());
-
-        if ($loan == $totalPayed) {
-            AccountsReceivable::where('id', $request->accounts_receivable_id)->update(['status' => 'paid']);
-        }
 
         return redirect()->route('receivable.show', $request->accounts_receivable_id)->with('success', "Your payment has been successfully processed");
     }
