@@ -53,5 +53,15 @@ class UserController extends Controller
         Auth::logout();
         return back()->with('success', 'logout successfully');
     }
-    public function destroy() {}
+    public function destroy(Request $req, String $id)
+    {
+        $authenticated = Auth::user();
+        $user = User::find($id);
+        if ($user->email == $authenticated->email) {
+            return redirect()->route('dashboard.users')->with('error', 'you cant delete logged in user');
+        } else {
+            User::destroy($id);
+            return redirect()->route('dashboard.users')->with('success', 'user deleted successfully');
+        }
+    }
 }

@@ -29,7 +29,7 @@
                 </td>
                 <td class="flex flex-col px-6 py-4 text-start">
                     {{-- <a href="{{route('users.edit',$user)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> --}}
-                    <form action="{{route('auth.destroy',$user)}}" method="post">
+                    <form action="{{route('auth.destroy',$user->id)}}" method="post">
                         @csrf
                         @method('DELETE')
                         <button onclick="return confirm('Are you sure you want to delete this user?')" type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline">
