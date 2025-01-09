@@ -52,7 +52,7 @@
             </ul>
          </li>
       </ul>
-      <ul class="pt-4 mt-40 space-y-4 font-medium border-t border-gray-200 dark:border-gray-700">
+      <ul class="pt-4 mt-40 space-y-6 font-medium border-t border-gray-200 dark:border-gray-700">
          <li> 
             <div class="flex items-center gap-4">
                <div class="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600">
@@ -63,6 +63,12 @@
                   <div class="text-sm text-gray-500 dark:text-gray-400">Joined in {{$user->created_at}}</div>
                </div>
             </div>
+         </li>
+         <li>
+            <form action="{{route('auth.logout')}}" method="post">
+               @csrf
+               <Button type="submit" class="w-full text-white bg-red-500 py-1 px-2 rounded">Logout</Button>
+            </form>
          </li>
       </ul>
    </div>

@@ -30,6 +30,7 @@ class UserController extends Controller
     {
         return view('auth.signup');
     }
+
     public function store(Request $req)
     {
         $req->validate([
@@ -43,5 +44,11 @@ class UserController extends Controller
             'email' => $req->email,
             'password' => Hash::make($req->password),
         ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return back()->with('success', 'logout successfully');
     }
 }

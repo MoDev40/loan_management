@@ -28,6 +28,8 @@ Route::middleware('guest')->group(
 
 Route::middleware('auth')->group(
     function () {
+        Route::post('/auth/logout', [UserController::class, 'logout'])->name('auth.logout');
+
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('/dashboard/overdue', [DashboardController::class, 'overDue'])->name('dashboard.overdue');
 
