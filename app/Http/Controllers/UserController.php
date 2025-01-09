@@ -44,6 +44,8 @@ class UserController extends Controller
             'email' => $req->email,
             'password' => Hash::make($req->password),
         ]);
+
+        return redirect()->route('dashboard.users')->with('success', 'user registered successfully');
     }
 
     public function logout()
