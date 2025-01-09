@@ -24,4 +24,9 @@ class DashboardController extends Controller
 
         return view('dashboard.customers.loans.overdue', ["loans" => $overDueLoans]);
     }
+
+    public function users()
+    {
+        return view('dashboard.users.index');
+    }
 }

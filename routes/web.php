@@ -31,6 +31,7 @@ Route::middleware('auth')->group(
 
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('/dashboard/overdue', [DashboardController::class, 'overDue'])->name('dashboard.overdue');
+        Route::get('/dashboard/users', [DashboardController::class, 'users'])->name('dashboard.users');
 
         Route::resource('/dashboard/customers', CustomerController::class);
 
