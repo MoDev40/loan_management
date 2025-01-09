@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AccountsReceivable;
 use App\Models\AccountsReceivablePayment;
 use App\Models\Customer;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class AccountsReceivableController extends Controller
@@ -15,7 +16,7 @@ class AccountsReceivableController extends Controller
     public function index()
     {
         //
-        $loans = AccountsReceivable::with('customer')->paginate(15);
+        $loans = AccountsReceivable::with('customer')->where('due_date', '>', Carbon::now())->paginate(15);
         return view('dashboard.customers.loans.index', ['loans' => $loans]);
     }
 

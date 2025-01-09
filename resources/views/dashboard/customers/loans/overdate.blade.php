@@ -41,6 +41,9 @@
                 <th scope="col" class="px-6 py-3">
                     Due
                 </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -57,6 +60,15 @@
                 </td>
                 <td class="px-6 py-4">
                     {{$loan->due_date}}
+                </td>
+                <td class="flex flex-col items-start px-6 py-5 text-start">
+                    <a href="{{route('receivable.show',$loan->id)}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Pay</a>
+                    <form method="post">
+                        @csrf
+                        <button type="submit" class="font-medium text-yellow-600 dark:text-yellow-500 hover:underline">
+                            Notify
+                        </button>
+                    </form>
                 </td>
             </tr>
             @endforeach
