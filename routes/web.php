@@ -5,7 +5,6 @@ use App\Http\Controllers\AccountsReceivablePaymentController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UserController;
-use App\Models\AccountsReceivable;
 use Illuminate\Support\Facades\Route;
 
 /*
