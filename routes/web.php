@@ -28,6 +28,9 @@ Route::middleware('guest')->group(
 Route::middleware('auth')->group(
     function () {
         Route::post('/auth/logout', [UserController::class, 'logout'])->name('auth.logout');
+        Route::post('/auth/store', [UserController::class, 'store'])->name('auth.store');
+        Route::delete('/auth/destroy', [UserController::class, 'destroy'])->name('auth.destroy');
+        Route::get('/auth/register', [UserController::class, 'register'])->name('auth.reg');
 
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
         Route::get('/dashboard/overdue', [DashboardController::class, 'overDue'])->name('dashboard.overdue');

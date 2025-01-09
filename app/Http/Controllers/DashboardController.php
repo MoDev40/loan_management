@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AccountsReceivable;
 use App\Models\AccountsReceivablePayment;
 use App\Models\Customer;
+use App\Models\User;
 use Carbon\Carbon;
 
 class DashboardController extends Controller
@@ -27,6 +28,7 @@ class DashboardController extends Controller
 
     public function users()
     {
-        return view('dashboard.users.index');
+        $users = User::paginate(15);
+        return view('dashboard.users.index', ['users' => $users]);
     }
 }

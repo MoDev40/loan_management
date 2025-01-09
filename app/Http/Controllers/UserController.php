@@ -51,4 +51,5 @@ class UserController extends Controller
         Auth::logout();
         return back()->with('success', 'logout successfully');
     }
+    public function destroy() {}
 }
